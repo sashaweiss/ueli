@@ -5,6 +5,7 @@ import { AutomaticRescan } from "./AutomaticRescan";
 import { Fuzziness } from "./Fuzziness";
 import { ManualRescanKeyboardShortcut } from "./ManualRescanKeyboardShortcut";
 import { MaxResultLength } from "./MaxResultLength";
+import { MaxResultLengthEmptySearchTerm } from "./MaxResultLengthEmptySearchTerm";
 import { RescanInterval } from "./RescanInterval";
 import { SearchEngineId } from "./SearchEngineId";
 
@@ -26,6 +27,7 @@ export const SearchEngine = () => {
                 <ManualRescanKeyboardShortcut />
                 <Fuzziness />
                 <MaxResultLength />
+                <MaxResultLengthEmptySearchTerm />
             </SettingGroup>
         </SettingGroupList>
     );
