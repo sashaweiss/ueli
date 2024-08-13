@@ -79,6 +79,10 @@ export const useSearchViewController = ({
     const search = (searchTerm: string, selectedItemId?: string) => {
         const fuzziness = window.ContextBridge.getSettingValue("searchEngine.fuzziness", 0.5);
         const maxSearchResultItems = window.ContextBridge.getSettingValue("searchEngine.maxResultLength", 50);
+        const maxSearchResultItemsEmptySearchTerm = window.ContextBridge.getSettingValue(
+            "searchEngine.maxResultLengthEmptySearchTerm",
+            50,
+        );
         const searchEngineId = window.ContextBridge.getSettingValue<SearchEngineId>("searchEngine.id", "fuzzysort");
 
         const searchResult = getSearchResult({
@@ -88,6 +92,7 @@ export const useSearchViewController = ({
             fuzziness,
             instantSearchResultItems: window.ContextBridge.getInstantSearchResultItems(searchTerm),
             maxSearchResultItems,
+            maxSearchResultItemsEmptySearchTerm,
             searchResultItems,
             searchTerm,
         });

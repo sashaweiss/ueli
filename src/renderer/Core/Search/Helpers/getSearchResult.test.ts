@@ -36,6 +36,7 @@ describe(getSearchResult, () => {
             searchTerm: "item",
             fuzziness: 0.5,
             maxSearchResultItems: 5,
+            maxSearchResultItemsEmptySearchTerm: 0, // will be ignored
         });
 
         expect(actual).toEqual({
@@ -74,7 +75,8 @@ describe(getSearchResult, () => {
             searchResultItems: [item5, item1, item3, item2, item4],
             searchTerm: "",
             fuzziness: 0, // will be ignored
-            maxSearchResultItems: 3,
+            maxSearchResultItems: 0, // will be ignored
+            maxSearchResultItemsEmptySearchTerm: 3,
         });
 
         expect(actual).toEqual({
