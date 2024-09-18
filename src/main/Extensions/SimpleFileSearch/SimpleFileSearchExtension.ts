@@ -57,6 +57,11 @@ export class SimpleFileSearchExtension implements Extension {
             const folderSetting = folderSettings.find(({ id }) => id === folderSettingId);
 
             for (const filePath of filePathsGroupedByFolderSettingId[folderSettingId]) {
+                if (basename(filePath).startsWith(".")) {
+                    // Skip hidden files/folders.
+                    continue;
+                }
+
                 if (!this.shouldIncludeFilePath(types[filePath], folderSetting.searchFor)) {
                     continue;
                 }
